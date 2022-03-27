@@ -167,13 +167,14 @@ const App = () => {
         let arregloCopiaCon = [];
         let dicc = {}
 
+        // El siguiente código realiza un filtrado de los arreglos de datos en base al lenguaje/continente (salida -> arreglo)
         if (agrupar === 0) {
             for (let i = 0; i < arregloPorLenguaje.length; i++) {
                 dicc = Object.assign({}, arregloPorLenguaje[i]);
                 arregloCopiaLen.push(dicc);
             }
             arreglo = arregloCopiaLen.filter(function (a) {
-                return a.name?.toLowerCase().includes(search?.toLowerCase()) || a.countries.filter(function (b) {
+                return a.name?.toLowerCase().includes(search?.toLowerCase()) || a.countries.filter(function (b) { // notar que filtra por nombre de continente/lenguaje O datos dentro del diccionario país
                     return b.name?.toLowerCase().includes(search?.toLowerCase()) ||
                         b.capital?.toLowerCase().includes(search?.toLowerCase()) ||
                         b.native?.toLowerCase().includes(search?.toLowerCase()) ||
@@ -188,7 +189,7 @@ const App = () => {
                 arregloCopiaCon.push(dicc);
             }
             arreglo = arregloPorContinente.filter(function (a) {
-                return a.name?.toLowerCase().includes(search?.toLowerCase()) || a.countries.filter(function (b) {
+                return a.name?.toLowerCase().includes(search?.toLowerCase()) || a.countries.filter(function (b) {  // notar que filtra por nombre de continente/lenguaje O datos dentro del diccionario país
                     return b.name?.toLowerCase().includes(search?.toLowerCase()) ||
                         b.capital?.toLowerCase().includes(search?.toLowerCase()) ||
                         b.native?.toLowerCase().includes(search?.toLowerCase()) ||
@@ -198,6 +199,10 @@ const App = () => {
             });
         }
 
+        /*  Luego de haber filtrado en base al lenguaje o continente (arreglo), se procede a filtrar arreglos de países dentro de lenguajes o continentes, 
+            así si la búsqueda coincide con el nombre de un país y un lenguaje, por ejemplo, no se dejan todos los países de ese lenguaje, y solo los que 
+            realmente coinciden con la busqueda. También puede ocurrir, por ejemplo, que si se busca "spa" aparezca España y todos los países del idioma español.
+        */
         for (let i = 0; i < arreglo.length; i++) {
             // console.log(arreglo[i].name + " : " + !arreglo[i].name.toLowerCase().includes(search?.toLowerCase()))
             if (!arreglo[i].name.toLowerCase().includes(search?.toLowerCase())) {
@@ -210,16 +215,15 @@ const App = () => {
                 })
             }
         }
+        console.log(arreglo)
         setList(arreglo);
     }
 
     function handleClickAgrLen() {
-        console.log("POR LENGUAJE");
         setAgrupar(0);
     }
 
     function handleClickAgrCon() {
-        console.log("POR CONTINENTE");
         setAgrupar(1);
     }
 
