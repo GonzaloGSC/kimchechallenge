@@ -18,41 +18,41 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 
 function CountryCard(props) {
     return (
-        props.array.map(el1 =>
-            <div>
+        props.array.map((el1, i) =>
+            <div key={i}>
                 <Title texto={el1.name} />
-                <div class="row">
+                <div className="row">
                     <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }} >
                         <Masonry>
                             {
-                                el1.countries.map(el2 =>
-                                    <div class="col">
-                                        <h1 class="tituloP">{el2.name}&nbsp;<img src={`https://flagcdn.com/24x18/${el2.code.toLowerCase()}.png`} /></h1> {/* Notar como utilizo el codigo del pais para generar la imagen */}
+                                el1.countries.map((el2, j) =>
+                                    <div className="col" key={j}>
+                                        <h1 className="tituloP">{el2.name}&nbsp;<img src={`https://flagcdn.com/24x18/${el2.code.toLowerCase()}.png`}  alt="imagen de bandera" /></h1> {/* Notar como utilizo el codigo del pais para generar la imagen */}
                                         flagemojiToPNG
-                                        <div class="rowTexto">
-                                            <p class="txt1">Code:&nbsp;</p>
-                                            <p class="txt2">{el2.code}&nbsp;&nbsp;</p>
-                                            <p class="txt1">Native:&nbsp;</p>
-                                            <p class="txt2">{el2.native}&nbsp;&nbsp;</p>
-                                            <p class="txt1">Phone:&nbsp;</p>
-                                            <p class="txt2">{el2.phone}&nbsp;&nbsp;</p>
-                                            <p class="txt1">Continent:&nbsp;</p>
-                                            <p class="txt2">{el2.continent.name}{" ("}{el2.continent.code}{")"}&nbsp;&nbsp;</p>
-                                            <p class="txt1">Capital:&nbsp;</p>
-                                            <p class="txt2">{el2.capital}&nbsp;&nbsp;</p>
-                                            <p class="txt1">Currency:&nbsp;</p>
-                                            <p class="txt2">{el2.currency}&nbsp;&nbsp;</p>
-                                            <p class="txt1">Languages:&nbsp;</p>
+                                        <div className="rowTexto">
+                                            <p className="txt1">Code:&nbsp;</p>
+                                            <p className="txt2">{el2.code}&nbsp;&nbsp;</p>
+                                            <p className="txt1">Native:&nbsp;</p>
+                                            <p className="txt2">{el2.native}&nbsp;&nbsp;</p>
+                                            <p className="txt1">Phone:&nbsp;</p>
+                                            <p className="txt2">{el2.phone}&nbsp;&nbsp;</p>
+                                            <p className="txt1">Continent:&nbsp;</p>
+                                            <p className="txt2">{el2.continent.name}{" ("}{el2.continent.code}{")"}&nbsp;&nbsp;</p>
+                                            <p className="txt1">Capital:&nbsp;</p>
+                                            <p className="txt2">{el2.capital}&nbsp;&nbsp;</p>
+                                            <p className="txt1">Currency:&nbsp;</p>
+                                            <p className="txt2">{el2.currency}&nbsp;&nbsp;</p>
+                                            <p className="txt1">Languages:&nbsp;</p>
                                             {
-                                                el2.languages?.map(el3 =>
-                                                    <p class="txt2">{el3.name},&nbsp;</p>
+                                                el2.languages?.map((el3, k) =>
+                                                    <p className="txt2" key={k}>{el3.name},&nbsp;</p>
                                                 )
                                             }
-                                            <p class="txt2">&nbsp;&nbsp;</p>
-                                            <p class="txt1">States:&nbsp;</p>
+                                            <p className="txt2">&nbsp;&nbsp;</p>
+                                            <p className="txt1">States:&nbsp;</p>
                                             {
-                                                el2.states?.map(el3 =>
-                                                    <p class="txt2">{el3.name}{" ("}{el3.code}{")"},&nbsp;</p>
+                                                el2.states?.map((el3, k) =>
+                                                    <p className="txt2" key={k}>{el3.name}{" ("}{el3.code}{")"},&nbsp;</p>
                                                 )
                                             }
                                         </div>

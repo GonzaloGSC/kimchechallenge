@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import React from "react";
 import "./App.css";
 import SearchCard from "../components/searchCard"

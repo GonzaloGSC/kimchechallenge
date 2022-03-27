@@ -12,27 +12,27 @@ function SearchCard(props) {
 
 
     return (
-        <div class="contenedor1">
-            <div class="card">
+        <div className="contenedor1">
+            <div className="card">
                 <h1>Country Search</h1>
-                <div class="contenedor2">
-                    <div class="contenedor3">
+                <div className="contenedor2">
+                    <div className="contenedor3">
                         <FontAwesomeIcon icon={faMagnifyingGlass} />
                     </div>
-                    <label class="input">
-                        <input class="input__field" type="text" placeholder=" " onChange={props.search} value={props.value1} id="iptSearch" />
-                        <span class="input__label">Search</span>
+                    <label className="input">
+                        <input className="input__field" type="text" placeholder=" " onChange={props.search} value={props.value1} id="iptSearch" />
+                        <span className="input__label">Search</span>
                     </label>
-                    <div class="contenedor3">
+                    <div className="contenedor3">
                         <Button classN="btn1" texto="Enter" myClick={props.myClick1} id="btnSearch" />
                     </div>
                 </div>
                 <h3>Group by:</h3>
-                <div class="contenedor4">
-                    <div class="contenedor3">
+                <div className="contenedor4">
+                    <div className="contenedor3">
                         <Button classN="btn1" texto="Language" myClick={props.myClick2} id="btnLan" />
                     </div>
-                    <div class="contenedor3">
+                    <div className="contenedor3">
                         <Button classN="btnDis" texto="Continet" myClick={props.myClick3} id="btnCon" />
                     </div>
                 </div>
