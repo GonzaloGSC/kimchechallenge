@@ -1,7 +1,7 @@
 # Desafío para Software Engineers
 
 Nombre postulante: Gonzalo Salinas Campos.\
-Link a la app en producción: [LINK DEL DEPLOY]
+Link a la app en producción: https://kimchechallenge.herokuapp.com/
 
 ## Observaciones
 
