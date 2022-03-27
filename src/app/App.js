@@ -1,4 +1,4 @@
-import {useCallback} from "react";
+import { useCallback } from "react";
 import React from "react";
 import "./App.css";
 import SearchCard from "../components/searchCard"
@@ -69,6 +69,7 @@ let continents = [];
 let languages = [];
 let arregloPorLenguaje = [];
 let arregloPorContinente = [];
+
 
 function IniciarCarga() {
     loading = true
@@ -155,30 +156,110 @@ QallLanguages();
 QallContinents();
 
 const App = () => {
-    let [list, setList] = React.useState(arregloPorLenguaje);
+    let [list, setList] = React.useState([]);
     let [search, setSearch] = React.useState("");
+    let [agrupar, setAgrupar] = React.useState(0);
+
 
     function handleClick() {
-        setList(arregloPorLenguaje);
+        let arreglo = [];
+        let arregloCopiaLen = [];
+        let arregloCopiaCon = [];
+        let dicc = {}
+
+        if (agrupar === 0) {
+            for (let i = 0; i < arregloPorLenguaje.length; i++) {
+                dicc = Object.assign({}, arregloPorLenguaje[i]);
+                arregloCopiaLen.push(dicc);
+            }
+            arreglo = arregloCopiaLen.filter(function (a) {
+                return a.name?.toLowerCase().includes(search?.toLowerCase()) || a.countries.filter(function (b) {
+                    return b.name?.toLowerCase().includes(search?.toLowerCase()) ||
+                        b.capital?.toLowerCase().includes(search?.toLowerCase()) ||
+                        b.native?.toLowerCase().includes(search?.toLowerCase()) ||
+                        b.currency?.toLowerCase().includes(search?.toLowerCase()) ||
+                        b.code?.toLowerCase().includes(search?.toLowerCase())
+                }).length > 0;
+            });
+        }
+        if (agrupar === 1) {
+            for (let i = 0; i < arregloPorContinente.length; i++) {
+                dicc = Object.assign({}, arregloPorContinente[i]);
+                arregloCopiaCon.push(dicc);
+            }
+            arreglo = arregloPorContinente.filter(function (a) {
+                return a.name?.toLowerCase().includes(search?.toLowerCase()) || a.countries.filter(function (b) {
+                    return b.name?.toLowerCase().includes(search?.toLowerCase()) ||
+                        b.capital?.toLowerCase().includes(search?.toLowerCase()) ||
+                        b.native?.toLowerCase().includes(search?.toLowerCase()) ||
+                        b.currency?.toLowerCase().includes(search?.toLowerCase()) ||
+                        b.code?.toLowerCase().includes(search?.toLowerCase())
+                }).length > 0;
+            });
+        }
+
+        for (let i = 0; i < arreglo.length; i++) {
+            // console.log(arreglo[i].name + " : " + !arreglo[i].name.toLowerCase().includes(search?.toLowerCase()))
+            if (!arreglo[i].name.toLowerCase().includes(search?.toLowerCase())) {
+                arreglo[i].countries = arreglo[i].countries.filter(function (a) {
+                    return a.name?.toLowerCase().includes(search?.toLowerCase()) ||
+                        a.capital?.toLowerCase().includes(search?.toLowerCase()) ||
+                        a.native?.toLowerCase().includes(search?.toLowerCase()) ||
+                        a.currency?.toLowerCase().includes(search?.toLowerCase()) ||
+                        a.code?.toLowerCase().includes(search?.toLowerCase())
+                })
+            }
+        }
+        setList(arreglo);
     }
 
-    function searchType(event) {
-        setSearch(event.target.value);
-        console.log(search);
-    }   
+    function handleClickAgrLen() {
+        console.log("POR LENGUAJE");
+        setAgrupar(0);
+    }
 
-    const _handleChange = useCallback(value => setSearch(value), [setSearch])
+    function handleClickAgrCon() {
+        console.log("POR CONTINENTE");
+        setAgrupar(1);
+    }
+
+    React.useEffect(() => {
+        let input1 = document.getElementById("iptSearch");
+        let button1 = document.getElementById("btnSearch");
+        let button2 = document.getElementById("btnLan");
+        let button3 = document.getElementById("btnCon");
+
+        input1.addEventListener("keyup", function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                button1.click();
+            }
+        });
+
+        button2.addEventListener("click", function (event) {
+            event.preventDefault();
+            button2.className = "btn1";
+            button3.className = "btnDis";
+        });
+
+        button3.addEventListener("click", function (event) {
+            event.preventDefault();
+            button2.className = "btnDis";
+            button3.className = "btn1";
+        });
+    }, [])
+
     return (
         <ApolloProvider client={client}>
             <div>
-                <h2>    
+                <h2>
                     kimche Challenge by Gonzalo Salinas
                     <span role="img" aria-label="Beer">
                         🍺
                     </span>
                 </h2>
             </div>
-            <SearchCard search={_handleChange} myClick1={handleClick} value1={search}/>
+            <SearchCard search={e => setSearch(e.target.value)} myClick1={handleClick} myClick2={handleClickAgrLen} myClick3={handleClickAgrCon} value1={search} />
             <CountryCard array={list} />
         </ApolloProvider>
     );

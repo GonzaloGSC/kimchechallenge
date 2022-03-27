@@ -1,4 +1,5 @@
-.btn1 {
+.btn1,
+.btnDis {
     text-shadow: none;
     color: var(--colBlanco1);
     font-weight: 600;
@@ -20,15 +21,22 @@
     background: var(--colAzul1);
 }
 
-.btn1:hover {
+.btnDis {
+    background: var(--colOutLine1);
+}
+
+.btn1:hover,
+.btnDis:hover {
     background: var(--colHover1);
 }
 
-.btn1:active {
+.btn1:active,
+.btnDis:active {
     background: var(--colHover1);
 }
 
-.btn1:focus {
+.btn1:focus,
+.btnDis:focus {
     outline: var(--colOutLine1);
     border-width: 5p;
     outline-style: auto;
@@ -36,7 +44,8 @@
     outline-offset: -1px;
 }
 
-.btn1:disabled {
+.btn1:disabled,
+.btnDis:disabled {
     opacity: 0.4;
     background: var(--colDisabled1);
     -webkit-box-shadow: none;
@@ -44,15 +53,16 @@
     cursor: not-allowed;
 }
 
-
-@media (max-width: 350px){
-    .btn1 {
+@media (max-width: 350px) {
+    .btn1,
+    .btnDis {
         font-size: 16px;
     }
 }
 
-@media (max-width: 300px){
-    .btn1 {
+@media (max-width: 300px) {
+    .btn1,
+    .btnDis {
         font-size: 14px;
     }
 }

@@ -8,7 +8,7 @@ function Button(props) {
         console.log("funciona en boton")
     }
     return (
-        <button class="btn1" onClick={props.myClick1}>
+        <button class={props.classN} onClick={props.myClick} id={props.id}>
             {props.texto}
         </button>
     );
