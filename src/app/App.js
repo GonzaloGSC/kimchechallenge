@@ -143,13 +143,6 @@ function PrepararDatos() {
     }
 }
 
-export function IniciarBusqueda() {
-    if (!loading) {
-        console.log("TEST")
-    }
-    console.log("TEST")
-}
-
 QallCountries();
 QallLanguages();
 QallContinents();
@@ -214,7 +207,7 @@ const App = () => {
                 })
             }
         }
-        console.log(arreglo)
+        // console.log(arreglo)
         setList(arreglo);
     }
 

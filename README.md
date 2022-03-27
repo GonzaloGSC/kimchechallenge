@@ -1,5 +1,3 @@
-
-
 # Desafío para Software Engineers
 
 Nombre postulante: Gonzalo Salinas Campos.:\
