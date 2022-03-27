@@ -15,9 +15,7 @@ La tabla que contiene la información correspondiente a la asistencia diaria de 
 
 ### Respuesta
 
-
 En primer lugar, y en la situación hipotética de que el cambio de arquitectura sea inviable (costo, inversión de tiempo, hh, perjudicar compatibilidades entre backends y controlador de BDD, entre otros.) propondría la utilización de índices, el indexar una tabla o la vista es sin lugar a dudas, una de las mejores opciones de poder mejorar el rendimiento de las consultas y aplicaciones en MysQL. En el caso de que el cambio de arquitectura sea viable, propondría la integración de GraphQL, ya que este está desarrollado por el equipo Facebook con el objetivo de trabajar con volúmenes de datos extremadamente grandes, además, puede integrar datos de cualquier tipo de backend en una capa de GraphQL, lo que hace que esta ventaja sea accesible para cualquier tipo de proyecto (incluido mySQL). PD: Ese si que es un niño responsable.
-
 
 ## Capturas de la APP
 
