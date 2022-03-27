@@ -22,7 +22,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-responsive-masonry": "^2.1.4",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "serve": "^13.0.2"
   },
   "scripts": {
     "dev": "react-scripts start",
