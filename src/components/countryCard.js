@@ -28,7 +28,6 @@ function CountryCard(props) {
                                 el1.countries.map((el2, j) =>
                                     <div className="col" key={j}>
                                         <h1 className="tituloP">{el2.name}&nbsp;<img src={`https://flagcdn.com/24x18/${el2.code.toLowerCase()}.png`}  alt="imagen de bandera" /></h1> {/* Notar como utilizo el codigo del pais para generar la imagen */}
-                                        flagemojiToPNG
                                         <div className="rowTexto">
                                             <p className="txt1">Code:&nbsp;</p>
                                             <p className="txt2">{el2.code}&nbsp;&nbsp;</p>
