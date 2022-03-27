@@ -1,0 +1,64 @@
+.col {
+    background: var(--color-background);
+    padding: 5px;
+
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: var(--size-radius);
+    border: 3px solid var(--color-shadow, currentColor);
+    box-shadow: 0.2rem 0.2rem 0 var(--color-shadow, currentColor);
+    width: 90%;
+    min-width: 200px;
+    justify-content: center;
+    display: block;
+    flex-grow: 0;
+    height: fit-content;
+    &--inverted {
+        --color-background: var(--color-dark);
+        color: var(--colBlanco1);
+        --color-shadow: var(--color-accent);
+    }
+    &--accent {
+        --color-background: var(--colAzul1);
+        --color-accent: var(--colBlanco1);
+        color: var(--color-dark);
+    }
+}
+
+.tituloP {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.row {
+    max-width: 1000px;
+    // display: flex;
+    margin: auto;
+    // flex-wrap: wrap;
+    // justify-content: center;
+}
+
+.rowTexto {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.rowCards {
+    width: 100%;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: min-content;
+}
+
+.txt1 {
+    margin: 0;
+    font-weight: bold;
+}
+
+.txt2 {
+    margin: 0;
+}

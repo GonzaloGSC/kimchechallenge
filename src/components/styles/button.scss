@@ -1,0 +1,58 @@
+.btn1 {
+    text-shadow: none;
+    color: var(--colBlanco1);
+    font-weight: 600;
+    font-family: var(--font1);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    font-size: 22px;
+    line-height: 1.25;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    width: 100%;
+    margin: 0px 3px 0px 3px;
+    padding: 3px 10px 3px 10px;
+    background: var(--colAzul1);
+}
+
+.btn1:hover {
+    background: var(--colHover1);
+}
+
+.btn1:active {
+    background: var(--colHover1);
+}
+
+.btn1:focus {
+    outline: var(--colOutLine1);
+    border-width: 5p;
+    outline-style: auto;
+    outline-width: medium;
+    outline-offset: -1px;
+}
+
+.btn1:disabled {
+    opacity: 0.4;
+    background: var(--colDisabled1);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+
+@media (max-width: 350px){
+    .btn1 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 300px){
+    .btn1 {
+        font-size: 14px;
+    }
+}
