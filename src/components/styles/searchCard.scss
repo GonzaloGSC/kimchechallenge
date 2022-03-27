@@ -1,0 +1,171 @@
+.input1 {
+    width: 100%;
+    max-width: 500px;
+}
+
+input:focus {
+    border-color: transparent;
+}
+
+h1,
+h2 {
+    font-weight: 900;
+    text-align: center;
+    font-family: var(--font1);
+}
+
+
+h3 {
+    font-weight: 900;
+    text-align: left;
+    white-space: nowrap;
+    font-family: var(--font1);
+    margin: 3px;
+    margin-left: 29px;
+}
+
+mark {
+    background: var(--color-accent);
+    color: var(--color-text);
+    font-weight: bold;
+    padding: 0 0.2em;
+}
+
+.card {
+    background: var(--color-background);
+    padding: calc(4 * var(--size-bezel));
+    margin-top: calc(4 * var(--size-bezel));
+    border-radius: var(--size-radius);
+    border: 3px solid var(--color-shadow, currentColor);
+    box-shadow: 0.5rem 0.5rem 0 var(--color-shadow, currentColor);
+    width: 100%;
+    max-width: 900px;
+    justify-content: center;
+
+    &--inverted {
+        --color-background: var(--color-dark);
+        color: var(--colBlanco1);
+        --color-shadow: var(--color-accent);
+    }
+
+    &--accent {
+        --color-background: var(--colAzul1);
+        --color-accent: var(--colBlanco1);
+        color: var(--color-dark);
+    }
+
+    *:first-child {
+        margin-top: 0;
+    }
+}
+
+.l-design-widht {
+    max-width: 40rem;
+    padding: 1rem;
+}
+
+.input {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    min-width: 105px;
+    font-family: var(--font1);
+    &__label {
+        position: absolute;
+        left: 4px;
+        top: 0;
+        padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * 0.5);
+        margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * 0.5);
+        background: pink;
+        white-space: nowrap;
+        transform: translate(0, 0);
+        transform-origin: 0 0;
+        background: var(--color-background);
+        transition: transform 120ms ease-in;
+        font-weight: bold;
+        line-height: 1.2;
+    }
+    &__field {
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        border: 3px solid currentColor;
+        padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+        color: currentColor;
+        background: transparent;
+        border-radius: var(--size-radius);
+        font-size: 16px;
+
+        &:focus,
+        &:not(:placeholder-shown) {
+            & + .input__label {
+                transform: translate(0.25rem, -65%) scale(0.8);
+                color: var(--color-accent);
+            }
+        }
+    }
+}
+
+.button-group {
+    margin-top: calc(var(--size-bezel) * 2.5);
+}
+
+.input1 {
+    color: currentColor;
+    padding: var(--size-bezel) calc(var(--size-bezel) * 2);
+    background: var(--color-accent);
+    border: none;
+    border-radius: var(--size-radius);
+    font-weight: 900;
+    font-family: var(--font1);
+    &[type="reset"] {
+        background: var(--color-background);
+        font-weight: 200;
+    }
+}
+
+.input1 + .input1 {
+    margin-left: calc(var(--size-bezel) * 2);
+}
+
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5em;
+}
+
+.hidden {
+    display: none;
+}
+
+.contenedor1 {
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor2 {
+    display: flex;
+}
+
+.contenedor3 {
+    align-content: center;
+    display: inline-grid;
+}
+
+.contenedor4 {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 26px;
+    margin-top: 5px;
+    max-width: 250px;
+}
+
+svg {
+    font-size: x-large;
+    vertical-align: middle;
+    margin-right: 5px;
+    margin-left: 0px;
+}
+
+//FUENTE: https://codepen.io/meodai/pen/rNedxBa
