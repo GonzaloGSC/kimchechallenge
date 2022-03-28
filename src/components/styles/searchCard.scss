@@ -14,7 +14,6 @@ h2 {
     font-family: var(--font1);
 }
 
-
 h3 {
     font-weight: 900;
     text-align: left;
@@ -142,6 +141,7 @@ mark {
 .contenedor1 {
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 .contenedor2 {
@@ -166,6 +166,13 @@ svg {
     vertical-align: middle;
     margin-right: 5px;
     margin-left: 0px;
+}
+
+.txt {
+    margin: 0;
+    margin-left: 28px;
+    font-weight: 400;
+    margin-bottom: 10px;
 }
 
 //FUENTE: https://codepen.io/meodai/pen/rNedxBa

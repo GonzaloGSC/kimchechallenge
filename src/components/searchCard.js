@@ -5,16 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 function SearchCard(props) {
-
-
-    
-
-
-
     return (
         <div className="contenedor1">
             <div className="card">
                 <h1>Country Search</h1>
+                <p className="txt">You can search for a country by name, code, telephone number, capital, language or continent.</p>
                 <div className="contenedor2">
                     <div className="contenedor3">
                         <FontAwesomeIcon icon={faMagnifyingGlass} />

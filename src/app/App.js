@@ -70,6 +70,7 @@ let arregloPorLenguaje = [];
 let arregloPorContinente = [];
 
 
+
 function IniciarCarga() {
     loading = true
     loadingCola.push("carga");
@@ -151,13 +152,14 @@ const App = () => {
     let [list, setList] = React.useState([]);
     let [search, setSearch] = React.useState("");
     let [agrupar, setAgrupar] = React.useState(0);
-
+    let [mostrarNoFound, setMostrar] = React.useState(false);
 
     function handleClick() {
         let arreglo = [];
         let arregloCopiaLen = [];
         let arregloCopiaCon = [];
         let dicc = {}
+        setMostrar(true);
 
         // El siguiente código realiza un filtrado de los arreglos de datos en base al lenguaje/continente (salida -> arreglo)
         if (agrupar === 0) {
@@ -255,8 +257,14 @@ const App = () => {
                     </span>
                 </h2>
             </div>
-            <SearchCard search={e => setSearch(e.target.value)} myClick1={handleClick} myClick2={handleClickAgrLen} myClick3={handleClickAgrCon} value1={search} />
-            <CountryCard array={list} />
+            <SearchCard
+                search={e => setSearch(e.target.value)}
+                myClick1={handleClick}
+                myClick2={handleClickAgrLen}
+                myClick3={handleClickAgrCon}
+                value1={search}
+            />
+            <CountryCard array={list} mNoFound={mostrarNoFound} />
         </ApolloProvider>
     );
 }

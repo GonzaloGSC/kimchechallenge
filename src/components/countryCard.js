@@ -17,8 +17,9 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 
 
 function CountryCard(props) {
-    return (
-        props.array.map((el1, i) =>
+    if (props.array.length > 0 || !props.mNoFound) {
+        // console.log(props.array);
+        return props.array?.map((el1, i) =>
             <div key={i}>
                 <Title texto={el1.name} />
                 <div className="row">
@@ -27,7 +28,7 @@ function CountryCard(props) {
                             {
                                 el1.countries.map((el2, j) =>
                                     <div className="col" key={j}>
-                                        <h1 className="tituloP">{el2.name}&nbsp;<img src={`https://flagcdn.com/24x18/${el2.code.toLowerCase()}.png`}  alt="imagen de bandera" /></h1> {/* Notar como utilizo el codigo del pais para generar la imagen */}
+                                        <h1 className="tituloP">{el2.name}&nbsp;<img src={`https://flagcdn.com/24x18/${el2.code.toLowerCase()}.png`} alt="imagen de bandera" /></h1> {/* Notar como utilizo el codigo del pais para generar la imagen */}
                                         <div className="rowTexto">
                                             <p className="txt1">Code:&nbsp;</p>
                                             <p className="txt2">{el2.code}&nbsp;&nbsp;</p>
@@ -63,7 +64,11 @@ function CountryCard(props) {
                 </div>
             </div>
         )
-    );
+    } else {
+        return (
+            <h1 className="tituloP">No results found</h1>
+        );
+    }
 }
 
 export default CountryCard;
