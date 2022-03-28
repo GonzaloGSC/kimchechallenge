@@ -33,7 +33,7 @@ function SearchCard(props) {
                         <Button classN="btn1" texto="Language" myClick={props.myClick2} id="btnLan" />
                     </div>
                     <div className="contenedor3">
-                        <Button classN="btnDis" texto="Continet" myClick={props.myClick3} id="btnCon" />
+                        <Button classN="btnDis" texto="Continent" myClick={props.myClick3} id="btnCon" />
                     </div>
                 </div>
             </div>
